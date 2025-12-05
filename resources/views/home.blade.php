@@ -11,11 +11,11 @@
             </h1>
 
             <p class="mt-4 text-2xl text-gray-700 font-light max-w-3xl mx-auto">
-                O Catálogo Definitivo da **Crocância**.
+                O Catálogo Definitivo da <span class="text-gray-800 font-black">Crocância</span>.
             </p>
 
             <p class="mt-3 text-lg text-gray-500 max-w-xl mx-auto">
-                Compare, organize e rankeie seus salgadinhos favoritos de forma **simples, moderna e objetiva**.
+                Compare, organize e rankeie seus salgadinhos favoritos de forma <span class="text-gray-800 font-black">simples, moderna e objetiva</span>.
             </p>
 
             <hr class="w-16 h-1 mx-auto my-8 bg-gray-200 border-0 rounded">
