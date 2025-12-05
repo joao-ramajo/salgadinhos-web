@@ -12,6 +12,6 @@ class SnackSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        
     }
 }
