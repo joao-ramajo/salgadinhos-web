@@ -36,7 +36,7 @@ class CommentSeeder extends Seeder
             ->make()
             ->each(function (Comment $comment) use ($snacks, $users) {
                 $comment->snack_id = $snacks->random()->id;
-                $comment->user_id = $users->random()->id;
+                $comment->user_id  = $users->random()->id;
                 $comment->save();
             });
     }

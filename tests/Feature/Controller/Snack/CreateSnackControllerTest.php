@@ -2,7 +2,7 @@
 
 use App\Models\Brand;
 
-beforeEach(function() {
+beforeEach(function () {
     Brand::factory()->create();
 });
 

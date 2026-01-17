@@ -6,8 +6,9 @@ use App\Models\Snack;
 
 class CreateSnackAction
 {
-    public function __construct(
-    ) {}
+    public function __construct()
+    {
+    }
 
     public function execute(array $data): void
     {

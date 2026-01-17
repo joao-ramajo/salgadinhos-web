@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<ruleset name="Laravel PSR-12">
+
+    <!-- Exibe progresso e erros -->
+    <arg value="ps"/>
+    <arg name="colors"/>
+
+    <!-- Diretórios analisados -->
+    <file>app</file>
+    <file>database</file>
+    <file>routes</file>
+    <file>tests</file>
+
+    <!-- Ignorar arquivos -->
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>storage/*</exclude-pattern>
+    <exclude-pattern>bootstrap/cache/*</exclude-pattern>
+
+    <!-- Base PSR-12 -->
+    <rule ref="PSR12"/>
+
+    <!-- Ajustes para Laravel -->
+
+    <!-- Permite métodos mágicos sem warning -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName">
+        <exclude name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps"/>
+    </rule>
+
+    <!-- Permite propriedades snake_case comuns no Laravel -->
+    <rule ref="Squiz.NamingConventions.ValidVariableName">
+        <exclude name="Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps"/>
+    </rule>
+
+    <!-- Permite chamadas encadeadas em múltiplas linhas -->
+    <rule ref="Generic.Formatting.MultipleStatementAlignment"/>
+
+    <!-- Desativa regra problemática com Blade comments -->
+    <exclude name="Squiz.Commenting.FunctionComment"/>
+
+    <!-- Laravel usa helpers globais -->
+    <rule ref="PSR1.Files.SideEffects">
+        <exclude name="PSR1.Files.SideEffects.FoundWithSymbols"/>
+    </rule>
+
+</ruleset>

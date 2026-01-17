@@ -11,8 +11,7 @@ class ShowSnackListPageController extends Controller
 {
     public function __construct(
         protected ListSnackAction $listSnackAction,
-    )
-    {
+    ) {
     }
     public function __invoke(): View
     {

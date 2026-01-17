@@ -10,13 +10,14 @@ class ListSnackController extends Controller
 {
     public function __construct(
         public readonly ListSnackAction $listSnackAction
-    ) {}
+    ) {
+    }
 
     public function handle(Request $request)
     {
         $perPage = $request->input('per_page', 10);
 
-        $snacks = $this->listSnackAction->handle($perPage);
+        $snacks = $this->listSnackAction->execute($perPage);
 
         return response()->json([
             'message' => 'Salgadinhos listados com sucesso.',
