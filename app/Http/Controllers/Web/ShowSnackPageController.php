@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Actions\Comment\GetCommentsBySnack;
 use App\Http\Controllers\Controller;
-use App\Models\Comment;
 use App\Models\Snack;
-use Illuminate\Http\Request;
 
 class ShowSnackPageController extends Controller
 {
+    public function __construct(
+        protected GetCommentsBySnack $getCommentsBySnack
+    ) {}
+
     public function __invoke(Snack $snack)
     {
-        $comments = Comment::where('snack_id', $snack->id)->get();
+        $comments = $this->getCommentsBySnack->execute($snack->id);
 
         return view('pages.snack.show', compact('snack', 'comments'));
     }
