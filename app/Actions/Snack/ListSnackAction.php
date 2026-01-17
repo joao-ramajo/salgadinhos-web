@@ -11,7 +11,7 @@ class ListSnackAction
     {
         return Snack::query()
             ->join('brands', 'brands.id', '=', 'snacks.brand_id')
-            ->orderBy('snacks.name')
+            ->orderBy('created_at', 'ASC')
             ->select([
                 'snacks.*',
                 'brands.name as brand_name',

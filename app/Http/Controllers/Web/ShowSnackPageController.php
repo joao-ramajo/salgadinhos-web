@@ -10,7 +10,8 @@ class ShowSnackPageController extends Controller
 {
     public function __construct(
         protected GetCommentsBySnack $getCommentsBySnack
-    ) {}
+    ) {
+    }
 
     public function __invoke(Snack $snack)
     {

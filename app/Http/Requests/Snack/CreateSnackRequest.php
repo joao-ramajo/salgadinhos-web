@@ -26,7 +26,7 @@ class CreateSnackRequest extends FormRequest
             'description' => 'nullable|string',
             'flavor'      => 'required|string|max:100',
             'price'       => 'required|numeric|min:0',
-            'image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'image'       => 'nullable|string|url',
             'brand_id'    => 'required|exists:brands,id',
         ];
     }
