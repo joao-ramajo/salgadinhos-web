@@ -135,10 +135,10 @@
                 @forelse ($comments as $comment)
                     <article
                         class="p-4 sm:p-5 bg-amber-50 border-4 border-gray-900 
-                                    shadow-[4px_4px_0px_0px_rgba(17,24,39,1)]
-                                    hover:shadow-[2px_2px_0px_0px_rgba(17,24,39,1)]
-                                    hover:translate-x-[2px] hover:translate-y-[2px]
-                                    transition-all duration-150">
+                        shadow-[4px_4px_0px_0px_rgba(17,24,39,1)]
+                        hover:shadow-[2px_2px_0px_0px_rgba(17,24,39,1)]
+                        hover:translate-x-[2px] hover:translate-y-[2px]
+                        transition-all duration-150">
 
                         {{-- Meta info --}}
                         <div class="flex items-center gap-2 sm:gap-3 mb-3 flex-wrap">
@@ -169,6 +169,112 @@
                     </div>
                 @endforelse
             </div>
+
+            {{-- Paginação Brutalista --}}
+            @if ($comments->hasPages())
+                <div class="mt-8 sm:mt-10">
+                    <nav role="navigation" aria-label="Paginação de comentários"
+                        class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+
+                        {{-- Botão Anterior --}}
+                        @if ($comments->onFirstPage())
+                            <span
+                                class="px-4 py-2 sm:px-5 sm:py-3 
+                             bg-gray-200 text-gray-400 font-black text-sm uppercase
+                             border-4 border-gray-300 
+                             cursor-not-allowed opacity-60">
+                                ← Anterior
+                            </span>
+                        @else
+                            <a href="{{ $comments->previousPageUrl() }}"
+                                class="px-4 py-2 sm:px-5 sm:py-3 
+                          bg-white text-gray-900 font-black text-sm uppercase
+                          border-4 border-gray-900 
+                          shadow-[4px_4px_0px_0px_rgba(17,24,39,1)]
+                          hover:shadow-[2px_2px_0px_0px_rgba(17,24,39,1)]
+                          hover:translate-x-[2px] hover:translate-y-[2px]
+                          active:shadow-[1px_1px_0px_0px_rgba(17,24,39,1)]
+                          active:translate-x-[3px] active:translate-y-[3px]
+                          transition-all duration-150">
+                                ← Anterior
+                            </a>
+                        @endif
+
+                        {{-- Números de Página --}}
+                        <div class="flex items-center gap-2 flex-wrap justify-center">
+                            @foreach ($comments->getUrlRange(1, $comments->lastPage()) as $page => $url)
+                                @if ($page == $comments->currentPage())
+                                    {{-- Página Atual --}}
+                                    <span
+                                        class="px-4 py-2 sm:px-5 sm:py-3 
+                                     bg-orange-500 text-gray-900 font-black text-sm
+                                     border-4 border-gray-900 
+                                     shadow-[4px_4px_0px_0px_rgba(17,24,39,1)]
+                                     min-w-[44px] text-center">
+                                        {{ $page }}
+                                    </span>
+                                @elseif ($page == 1 || $page == $comments->lastPage() || abs($page - $comments->currentPage()) <= 2)
+                                    {{-- Páginas próximas ou primeira/última --}}
+                                    <a href="{{ $url }}"
+                                        class="px-4 py-2 sm:px-5 sm:py-3 
+                                  bg-white text-gray-900 font-bold text-sm
+                                  border-4 border-gray-900 
+                                  shadow-[4px_4px_0px_0px_rgba(17,24,39,1)]
+                                  hover:shadow-[2px_2px_0px_0px_rgba(17,24,39,1)]
+                                  hover:translate-x-[2px] hover:translate-y-[2px]
+                                  hover:bg-amber-50
+                                  active:shadow-[1px_1px_0px_0px_rgba(17,24,39,1)]
+                                  active:translate-x-[3px] active:translate-y-[3px]
+                                  transition-all duration-150
+                                  min-w-[44px] text-center">
+                                        {{ $page }}
+                                    </a>
+                                @elseif (abs($page - $comments->currentPage()) == 3)
+                                    {{-- Separador (três pontos) --}}
+                                    <span class="px-2 text-gray-500 font-black">...</span>
+                                @endif
+                            @endforeach
+                        </div>
+
+                        {{-- Botão Próximo --}}
+                        @if ($comments->hasMorePages())
+                            <a href="{{ $comments->nextPageUrl() }}"
+                                class="px-4 py-2 sm:px-5 sm:py-3 
+                          bg-white text-gray-900 font-black text-sm uppercase
+                          border-4 border-gray-900 
+                          shadow-[4px_4px_0px_0px_rgba(17,24,39,1)]
+                          hover:shadow-[2px_2px_0px_0px_rgba(17,24,39,1)]
+                          hover:translate-x-[2px] hover:translate-y-[2px]
+                          active:shadow-[1px_1px_0px_0px_rgba(17,24,39,1)]
+                          active:translate-x-[3px] active:translate-y-[3px]
+                          transition-all duration-150">
+                                Próximo →
+                            </a>
+                        @else
+                            <span
+                                class="px-4 py-2 sm:px-5 sm:py-3 
+                             bg-gray-200 text-gray-400 font-black text-sm uppercase
+                             border-4 border-gray-300 
+                             cursor-not-allowed opacity-60">
+                                Próximo →
+                            </span>
+                        @endif
+                    </nav>
+
+                    {{-- Informação de Página --}}
+                    <div class="mt-4 sm:mt-6 text-center">
+                        <p class="text-xs sm:text-sm text-gray-600 font-bold uppercase">
+                            Mostrando
+                            <span class="text-gray-900">{{ $comments->firstItem() ?? 0 }}</span>
+                            até
+                            <span class="text-gray-900">{{ $comments->lastItem() ?? 0 }}</span>
+                            de
+                            <span class="text-gray-900">{{ $comments->total() }}</span>
+                            comentários
+                        </p>
+                    </div>
+                </div>
+            @endif
         </section>
 
         {{-- Formulário de Comentário --}}
