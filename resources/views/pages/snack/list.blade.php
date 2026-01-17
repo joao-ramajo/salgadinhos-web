@@ -61,7 +61,7 @@
                                            border-3 sm:border-4 border-white 
                                            shadow-[3px_3px_0px_0px_rgba(17,24,39,1)] sm:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] 
                                            rotate-2 sm:rotate-3">
-                                    R$ {{ number_format($snack->price, 2, ',', '.') }}
+                                    R$ {{ $snack->price / 100 }}
                                 </div>
                             </div>
 
