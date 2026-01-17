@@ -15,12 +15,13 @@
             </p>
 
             <p class="mt-3 text-lg text-gray-500 max-w-xl mx-auto">
-                Compare, organize e rankeie seus salgadinhos favoritos de forma <span class="text-gray-800 font-black">simples, moderna e objetiva</span>.
+                Compare, organize e rankeie seus salgadinhos favoritos de forma <span
+                    class="text-gray-800 font-black">simples, moderna e objetiva</span>.
             </p>
 
             <hr class="w-16 h-1 mx-auto my-8 bg-gray-200 border-0 rounded">
 
-            <a href="/ranking"
+            <a href="{{ route('web.snacks.list') }}"
                 class="inline-flex items-center justify-center 
                        bg-gray-900 text-white font-semibold text-lg 
                        px-10 py-3 rounded-xl 

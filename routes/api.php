@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Snack\CreateSnackController;
 use App\Http\Controllers\Snack\ListSnackController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // Snacks
