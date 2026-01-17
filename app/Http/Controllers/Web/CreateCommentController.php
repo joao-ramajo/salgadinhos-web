@@ -18,14 +18,17 @@ class CreateCommentController extends Controller
     public function __invoke(Request $request, Snack $snack)
     {
         $request->validate([
-            'content' => 'required|string|min:3|max:500'
+            'content' => 'required|string|min:3|max:500',
+            'nickname' => 'nullable|string|max:50',
         ]);
 
         $content = $request->input('content');
+        $nickName = $request->input('nickname');
 
         $createCommentInput = CreateCommentInput::create(
             content: $content,
-            snackId: $snack->id
+            snackId: $snack->id,
+            nickName: $nickName
         );
 
         $this->createCommentAction->execute($createCommentInput);

@@ -12,7 +12,8 @@ class CreateCommentAction
         Comment::create([
             'content' => $input->content,
             'snack_id' => $input->snackId,
-            'user_id' => $input->userId
+            'user_id' => $input->userId,
+            'nickname' => $input->nickName,
         ]);
     }
 }

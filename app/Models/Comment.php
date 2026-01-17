@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int|null $user_id
  * @property int $snack_id
  * @property string $content
+ * @property string|null $nickName
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
  *
@@ -28,6 +29,7 @@ class Comment extends Model
         'user_id',
         'snack_id',
         'content',
+        'nickname',
     ];
 
     /**
