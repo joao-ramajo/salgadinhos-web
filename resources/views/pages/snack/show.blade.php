@@ -1,16 +1,14 @@
 <x-layouts.main_layout pageTitle="{{ $snack->name }}">
 
     <div class="max-w-4xl mx-auto space-y-8">
-
+        @if (session('success'))
+            <p>{{ session('success') }}</p>
+        @endif
         {{-- Detalhes do snack --}}
         <section class="bg-white shadow rounded p-6 space-y-4">
             <div class="flex gap-6">
                 @if ($snack->image)
-                    <img
-                        src="{{ $snack->image }}"
-                        alt="{{ $snack->name }}"
-                        class="w-40 h-40 object-cover rounded"
-                    >
+                    <img src="{{ $snack->image }}" alt="{{ $snack->name }}" class="w-40 h-40 object-cover rounded">
                 @else
                     <div class="w-40 h-40 bg-gray-200 flex items-center justify-center rounded text-gray-500">
                         Sem imagem
@@ -74,31 +72,17 @@
                 Deixe um comentário
             </h2>
 
-            <form
-                method="POST"
-                {{-- action="{{ route('snacks.comments.store', $snack) }}" --}}
-                class="space-y-4"
-            >
+            <form method="POST" action="{{ route('snacks.comments.store', $snack) }}" class="space-y-4">
                 @csrf
 
-                <textarea
-                    name="content"
-                    rows="4"
-                    required
-                    minlength="3"
-                    maxlength="500"
-                    class="w-full border rounded p-3 focus:outline-none focus:ring"
-                    placeholder="Escreva seu comentário..."
-                >{{ old('content') }}</textarea>
+                <textarea name="content" rows="4" required minlength="3" maxlength="500"
+                    class="w-full border rounded p-3 focus:outline-none focus:ring" placeholder="Escreva seu comentário...">{{ old('content') }}</textarea>
 
                 @error('content')
                     <p class="text-sm text-red-600">{{ $message }}</p>
                 @enderror
 
-                <button
-                    type="submit"
-                    class="px-4 py-2 bg-black text-white rounded hover:opacity-90"
-                >
+                <button type="submit" class="px-4 py-2 bg-black text-white rounded hover:opacity-90">
                     Comentar
                 </button>
             </form>
