@@ -125,7 +125,7 @@
     </section>
 
     {{-- Seção de CTA no final --}}
-    <section class="w-full py-12 sm:py-16 bg-gray-900 border-t-4 sm:border-t-6 border-orange-500">
+    {{-- <section class="w-full py-12 sm:py-16 bg-gray-900 border-t-4 sm:border-t-6 border-orange-500">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-3 sm:mb-4 uppercase leading-tight">
@@ -155,6 +155,6 @@
             </a>
 
         </div>
-    </section>
+    </section> --}}
 
 </x-layouts.main_layout>

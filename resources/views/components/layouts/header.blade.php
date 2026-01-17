@@ -36,7 +36,7 @@
                       hover:translate-x-[-4px] hover:translate-y-[-4px]">
                 Sobre
             </a>
-            <a href="/contact"
+            {{-- <a href="/contact"
                 class="px-4 py-2 font-bold text-sm uppercase tracking-wide
                       text-white hover:text-gray-900
                       hover:bg-orange-400
@@ -45,7 +45,7 @@
                       shadow-[4px_4px_0px_0px_rgba(251,146,60,0)] hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]
                       hover:translate-x-[-4px] hover:translate-y-[-4px]">
                 Contato
-            </a>
+            </a> --}}
         </nav>
     </div>
 

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Web\CreateBrandController;
 use App\Http\Controllers\Web\CreateSnackController;
 use App\Http\Controllers\Web\CreateCommentController;
+use App\Http\Controllers\Web\ShowCreateBrandFormController;
 use App\Http\Controllers\Web\ShowCreateSnackFormController;
 use App\Http\Controllers\Web\ShowHomePageController;
 use App\Http\Controllers\Web\ShowSnackListPageController;
@@ -14,3 +16,6 @@ Route::get('/salgadinhos/{snack}', ShowSnackPageController::class)->name('web.sn
 Route::get('/cadastro', ShowCreateSnackFormController::class)->name('web.snacks.create');
 Route::post('/salgadinhos/{snack}/comentar', CreateCommentController::class)->name('snacks.comments.store');
 Route::post('/salgadinhos/cadastrar', CreateSnackController::class)->name('snacks.create');
+Route::get('/cadastrar-marca', ShowCreateBrandFormController::class)->name('web.brands.create');
+Route::post('/cadastrar-marca', CreateBrandController::class)->name('brands.store');
+Route::view('sobre', 'sobre');

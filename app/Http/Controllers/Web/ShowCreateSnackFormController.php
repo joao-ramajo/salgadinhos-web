@@ -10,7 +10,7 @@ class ShowCreateSnackFormController extends Controller
 {
     public function __invoke()
     {
-        $brands = Brand::all();
+        $brands = Brand::orderBy('name')->get();
 
         return view('pages.snack.create', compact('brands'));
     }
