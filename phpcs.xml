@@ -15,6 +15,7 @@
     <exclude-pattern>vendor/*</exclude-pattern>
     <exclude-pattern>storage/*</exclude-pattern>
     <exclude-pattern>bootstrap/cache/*</exclude-pattern>
+     <exclude-pattern>database/seeders/*</exclude-pattern>
 
     <!-- Base PSR-12 -->
     <rule ref="PSR12"/>

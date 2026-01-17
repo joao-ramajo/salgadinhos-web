@@ -18,7 +18,6 @@
         "fakerphp/faker": "^1.23",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
-        "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
         "nunomaduro/larastan": "^3.8",
@@ -82,6 +81,11 @@
         ],
         "lint:style:static": [
             "./vendor/bin/phpstan"
+        ],
+        "ci:check": [
+            "vendor/bin/phpstan analyse --memory-limit=2G",
+            "vendor/bin/phpcs --standard=PSR12 app/",
+            "vendor/bin/pest"
         ]
     },
     "extra": {

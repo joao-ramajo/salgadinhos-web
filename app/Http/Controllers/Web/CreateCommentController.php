@@ -22,7 +22,7 @@ class CreateCommentController extends Controller
             'nickname' => 'nullable|string|max:50',
         ]);
 
-        $content = $request->input('content');
+        $content  = $request->input('content');
         $nickName = $request->input('nickname');
 
         $createCommentInput = CreateCommentInput::create(
