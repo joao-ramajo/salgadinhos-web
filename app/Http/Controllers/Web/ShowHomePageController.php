@@ -16,6 +16,8 @@ class ShowHomePageController extends Controller
             ->take(3)
             ->get();
 
+        
+
         return view('home', compact('recentComments'));
     }
 }

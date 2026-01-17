@@ -191,7 +191,7 @@
                                     class="flex items-center justify-between gap-2 pt-3 border-t-3 sm:border-t-4 border-gray-900 flex-wrap">
                                     <div
                                         class="px-2 py-1 sm:px-3 sm:py-1 bg-gray-900 text-white font-bold text-xs uppercase">
-                                        {{ $comment->user?->name ?? 'Anônimo' }}
+                                        {{ $comment?->nickname ?? 'Anônimo' }} 
                                     </div>
                                     <span class="text-xs text-gray-600 font-medium">
                                         {{ $comment->created_at->diffForHumans() }}
