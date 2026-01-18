@@ -50,3 +50,6 @@ jobs:
             docker compose up -d --build
             docker exec salgadinhos-app php artisan migrate --force
             docker exec salgadinhos-app php artisan optimize
+            docker exec salgadinhos-app php artisan config:clear
+            docker exec salgadinhos-app php artisan cache:clear
+            docker exec salgadinhos-app php artisan view:clear
