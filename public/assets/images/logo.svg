@@ -1,0 +1,28 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#FFFBEB"/>
+  
+  <!-- Main background square -->
+  <rect x="50" y="50" width="300" height="300" fill="#FB923C" stroke="#111827" stroke-width="12"/>
+  
+  <!-- Inner square -->
+  <rect x="80" y="80" width="240" height="240" fill="#111827" stroke="#111827" stroke-width="8"/>
+  
+  <!-- SW Text -->
+  <text x="200" y="260" 
+        font-family="Arial, sans-serif" 
+        font-size="140" 
+        font-weight="900" 
+        fill="#FCD34D" 
+        text-anchor="middle"
+        letter-spacing="-5">SW</text>
+  
+  <!-- Decorative corner squares -->
+  <rect x="0" y="0" width="40" height="40" fill="#FB923C"/>
+  <rect x="360" y="0" width="40" height="40" fill="#FCD34D"/>
+  <rect x="0" y="360" width="40" height="40" fill="#FCD34D"/>
+  <rect x="360" y="360" width="40" height="40" fill="#FB923C"/>
+  
+  <!-- Border frame -->
+  <rect x="5" y="5" width="390" height="390" fill="none" stroke="#111827" stroke-width="10"/>
+</svg>
