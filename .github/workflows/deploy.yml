@@ -45,7 +45,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd /var/www/salgadinhos-web
-            git pull origin main
+            git fetch origin main
+            git reset --hard origin/main
             docker compose up -d --build
             docker exec salgadinhos-app php artisan migrate --force
             docker exec salgadinhos-app php artisan optimize
