@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: docker/php/Dockerfile
     container_name: salgadinhos-app
+    volumes:
+      - ./.env:/var/www/.env
     env_file:
       - .env
     depends_on:
