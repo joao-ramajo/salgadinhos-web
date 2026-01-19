@@ -23,7 +23,7 @@
     </div>
 
     <div class="w-full py-8 sm:py-12 bg-white">
-        <div class="max-w-[700px] mx-auto px-4 sm:px-6">
+        <div class="max-w-lg mx-auto px-4 sm:px-6">
 
             {{-- Formulário --}}
             <form method="POST" action="{{ route('register') }}"
