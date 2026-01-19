@@ -291,14 +291,16 @@
                 @csrf
 
                 {{-- Nickname (opcional) --}}
-                <div>
-                    <label for="nickname"
-                        class="block text-sm font-bold text-amber-300 uppercase tracking-wide mb-2 sm:mb-3">
-                        Seu nome (opcional)
-                    </label>
-                    <input type="text" id="nickname" name="nickname" maxlength="50" value="{{ old('nickname') }}"
-                        placeholder="Como quer ser chamado?"
-                        class="w-full px-4 py-3 sm:px-5 sm:py-4
+                @auth
+                @else
+                    <div>
+                        <label for="nickname"
+                            class="block text-sm font-bold text-amber-300 uppercase tracking-wide mb-2 sm:mb-3">
+                            Seu nome (opcional)
+                        </label>
+                        <input type="text" id="nickname" name="nickname" maxlength="50" value="{{ old('nickname') }}"
+                            placeholder="Como quer ser chamado?"
+                            class="w-full px-4 py-3 sm:px-5 sm:py-4
                                bg-white text-gray-900 font-medium text-sm sm:text-base
                                border-4 sm:border-6 border-white
                                focus:border-orange-500 focus:outline-none
@@ -307,16 +309,18 @@
                                transition-all duration-150
                                placeholder:text-gray-400 placeholder:font-normal">
 
-                    <p class="text-xs sm:text-sm text-amber-200 font-medium mt-2">
-                        Se não preencher, aparecerá como "Anônimo"
-                    </p>
+                        <p class="text-xs sm:text-sm text-amber-200 font-medium mt-2">
+                            Se não preencher, aparecerá como "Anônimo"
+                        </p>
 
-                    @error('nickname')
-                        <div class="mt-3 p-3 bg-red-100 border-4 border-red-600">
-                            <p class="text-sm font-bold text-red-900">{{ $message }}</p>
-                        </div>
-                    @enderror
-                </div>
+                        @error('nickname')
+                            <div class="mt-3 p-3 bg-red-100 border-4 border-red-600">
+                                <p class="text-sm font-bold text-red-900">{{ $message }}</p>
+                            </div>
+                        @enderror
+                    </div>
+                @endauth
+
 
                 <div>
                     <label class="block text-sm font-bold text-amber-300 uppercase tracking-wide mb-2 sm:mb-3">

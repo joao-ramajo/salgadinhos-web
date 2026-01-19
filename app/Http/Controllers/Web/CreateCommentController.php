@@ -7,6 +7,7 @@ use App\Domain\Comment\CreateCommentInput;
 use App\Http\Controllers\Controller;
 use App\Models\Snack;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CreateCommentController extends Controller
 {
@@ -22,12 +23,15 @@ class CreateCommentController extends Controller
             'nickname' => 'nullable|string|max:50',
         ]);
 
+        $nickName = Auth::user()->name ?? $request->input('nickname');
         $content  = $request->input('content');
-        $nickName = $request->input('nickname');
+
+        $userId = Auth::id() ?? null;
 
         $createCommentInput = CreateCommentInput::create(
             content: $content,
             snackId: $snack->id,
+            userId: $userId,
             nickName: $nickName
         );
 

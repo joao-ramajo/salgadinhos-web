@@ -88,7 +88,7 @@
 
                             {{-- Menu Items --}}
                             <div class="py-2">
-                                <a href="/profile" 
+                                <a href="{{ route('profile', ['user' => Auth::id()]) }}" 
                                    class="block px-4 py-3 text-sm font-bold text-gray-900 uppercase
                                           hover:bg-amber-50 transition-colors border-b-2 border-transparent hover:border-orange-500">
                                     Meu Perfil
