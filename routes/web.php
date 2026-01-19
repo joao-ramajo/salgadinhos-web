@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Web\Auth\LoginController;
+use App\Http\Controllers\Web\Auth\LogoutController;
+use App\Http\Controllers\Web\Auth\RegisterUserController;
 use App\Http\Controllers\Web\CreateBrandController;
 use App\Http\Controllers\Web\CreateSnackController;
 use App\Http\Controllers\Web\CreateCommentController;
@@ -19,3 +22,11 @@ Route::post('/salgadinhos/cadastrar', CreateSnackController::class)->name('snack
 Route::get('/cadastrar-marca', ShowCreateBrandFormController::class)->name('web.brands.create');
 Route::post('/cadastrar-marca', CreateBrandController::class)->name('brands.store');
 Route::view('sobre', 'sobre');
+
+Route::view('/cadastre-se', 'auth.register')->name('web.register');
+Route::view('/login', 'auth.login')->name('web.login');
+
+
+Route::post('/cadastre-se', RegisterUserController::class)->name('register');
+Route::post('/logout', LogoutController::class)->name('logout');
+Route::post('/login', LoginController::class)->name('login');
