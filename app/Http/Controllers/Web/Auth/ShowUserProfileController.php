@@ -17,6 +17,7 @@ class ShowUserProfileController extends Controller
         $totalComments = Comment::where('user_id', $user->id)->get();
 
         $snacksReviewed = $user->comments()->distinct('snack_id')->count('snack_id');
+
         $lastComment = $user->comments()->latest()->first();
 
         // 3 últimos comentários (públicos)
@@ -36,6 +37,13 @@ class ShowUserProfileController extends Controller
             }])
             ->get();
 
-        return view('profile', compact('user', 'totalComments', 'snacksReviewed', 'lastComment', 'recentComments', 'allComments'));
+        return view('profile', compact(
+            'user',
+            'totalComments',
+            'snacksReviewed',
+            'lastComment',
+            'recentComments',
+            'allComments'
+        ));
     }
 }
