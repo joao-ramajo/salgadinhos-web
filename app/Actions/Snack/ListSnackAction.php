@@ -7,7 +7,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class ListSnackAction
 {
-    public function execute(int $perPage = 10): LengthAwarePaginator
+    public function execute(int $perPage = 30): LengthAwarePaginator
     {
         return Snack::query()
             ->join('brands', 'brands.id', '=', 'snacks.brand_id')
