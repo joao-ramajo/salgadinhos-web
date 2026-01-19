@@ -14,7 +14,5 @@ test('cria um novo registro de salgadinho com sucesso', function () {
         'brand_id' => 1,
     ]);
 
-    $response->dump();
-
     $response->assertStatus(201);
 });
