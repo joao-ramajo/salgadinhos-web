@@ -119,8 +119,8 @@
                 </div>
 
                 {{-- Usuário Logado - Mobile --}}
-                <div class="flex sm:hidden items-center gap-2">
-                    <a href="/profile" 
+                <div class="flex sm:hidden items-center gap-2 bg-red-500">
+                    <a href="{{ route('profile', ['user' => Auth::id()]) }}"
                        class="p-2 bg-orange-500 text-gray-900 border-3 border-white
                               shadow-[3px_3px_0px_0px_rgba(255,255,255,1)]
                               hover:shadow-[1px_1px_0px_0px_rgba(255,255,255,1)]
