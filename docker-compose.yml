@@ -8,7 +8,7 @@ services:
     container_name: salgadinhos-app
     volumes:
       - ./.env:/var/www/.env
-      - build_assets:/var/www/public/build
+      # - build_assets:/var/www/public/build
     env_file:
       - .env
     depends_on:
@@ -24,7 +24,7 @@ services:
     volumes:
       - ./public:/var/www/public:ro
       - build_assets:/var/www/public/build:ro
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      # - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
       # Remova essa linha do Let's Encrypt por enquanto:
       # - /etc/letsencrypt:/etc/letsencrypt:ro
     depends_on:
@@ -45,4 +45,4 @@ services:
 
 volumes:
   mysql_data:
-  build_assets:
+  # build_assets:
